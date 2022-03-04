@@ -14,7 +14,6 @@ npm install --save https://github.com/jrc03c/custom-scroller
   const y = 250
   const ms = 1500
   const linearEasing = x => x // optional; defaults to sine easing
-
   const scroller = new CustomScroller(myScrollingElement, linearEasing)
 
   scroller.scrollTo(x, y, ms).then(() => {
