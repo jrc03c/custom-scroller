@@ -6,16 +6,6 @@ function curve(x) {
   return Math.sin(x * Math.PI - Math.PI / 2) * 0.5 + 0.5
 }
 
-function pause(ms) {
-  return new Promise((resolve, reject) => {
-    try {
-      setTimeout(resolve, ms)
-    } catch (e) {
-      reject(e)
-    }
-  })
-}
-
 class CustomScroller {
   constructor(element) {
     const self = this
