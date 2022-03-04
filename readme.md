@@ -21,3 +21,5 @@ npm install --save https://github.com/jrc03c/custom-scroller
   })
 </script>
 ```
+
+If you need to stop the scrolling suddenly, use `scroller.stop()` (which returns a `Promise` that resolves when the scroller has come to a standstill). Also, calling the `scrollTo` method before a previous scroll has finished will stop the previous scroll and start the new one.
