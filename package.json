@@ -1,6 +1,6 @@
 {
-  "name": "custom-scroll",
+  "name": "@jrc03c/custom-scroller",
   "version": "0.0.1",
-  "main": "custom-scroll.js",
+  "main": "custom-scroller.js",
   "author": "jrc03c"
 }
