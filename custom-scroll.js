@@ -2,22 +2,26 @@ function lerp(a, b, f) {
   return f * (b - a) + a
 }
 
-function curve(x) {
-  return Math.sin(x * Math.PI - Math.PI / 2) * 0.5 + 0.5
-}
-
 class CustomScroller {
-  constructor(element) {
+  constructor(element, easingFunction) {
     const self = this
     self.element = element
     self.shouldKeepScrolling = false
     self.hasStoppedScrolling = true
+
+    self.easingFunction =
+      easingFunction ||
+      function (x) {
+        return Math.sin(x * Math.PI - Math.PI / 2) * 0.5 + 0.5
+      }
   }
 
   scrollTo(x, y, ms) {
     const self = this
     const xProperty = self.element === window ? "scrollX" : "scrollLeft"
     const yProperty = self.element === window ? "scrollY" : "scrollTop"
+    const originalX = self.element[xProperty]
+    const originalY = self.element[yProperty]
 
     return new Promise(async (resolve, reject) => {
       try {
@@ -38,8 +42,8 @@ class CustomScroller {
           }
 
           self.element.scrollTo(
-            lerp(self.element[xProperty], x, curve(elapsedTime / ms)),
-            lerp(self.element[yProperty], y, curve(elapsedTime / ms))
+            lerp(originalX, x, self.easingFunction(elapsedTime / ms)),
+            lerp(originalY, y, self.easingFunction(elapsedTime / ms))
           )
 
           const currentTimestamp = new Date()
