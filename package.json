@@ -2,5 +2,11 @@
   "name": "@jrc03c/custom-scroller",
   "version": "0.0.1",
   "main": "custom-scroller.js",
-  "author": "jrc03c"
+  "author": "jrc03c",
+  "devDependencies": {
+    "@eslint/js": "^9.4.0",
+    "eslint": "^9.4.0",
+    "globals": "^15.4.0",
+    "prettier": "^3.3.2"
+  }
 }

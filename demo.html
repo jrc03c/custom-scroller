@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -514,7 +514,10 @@
     <script>
       const topButton = document.querySelector("#top-button")
       const bottomButton = document.querySelector("#bottom-button")
-      const scroller = new CustomScroller(document.scrollingElement)
+
+      const scroller = new CustomScroller({
+        fn: CustomScroller.EASE_BOUNCE,
+      })
 
       topButton.addEventListener("click", () => {
         const x = 0
